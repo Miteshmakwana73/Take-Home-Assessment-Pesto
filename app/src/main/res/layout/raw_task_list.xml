@@ -63,7 +63,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:singleLine="true"
-            tools:text="@string/descritpion"
+            tools:text="@string/description"
             android:textColor="@color/text_gray"
             android:textSize="@dimen/_10ssp"
             app:layout_constraintBottom_toTopOf="@+id/tvTaskId"

@@ -148,7 +148,7 @@
                 android:background="@null"
                 android:fadeScrollbars="false"
                 android:gravity="start"
-                android:hint="@string/description"
+                android:hint="@string/add_description"
                 android:inputType="textMultiLine"
                 android:lineSpacingExtra="@dimen/_2sdp"
                 android:maxLength="5000"

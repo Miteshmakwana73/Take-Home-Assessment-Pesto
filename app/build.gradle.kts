@@ -4,6 +4,7 @@ plugins {
     id("kotlin-parcelize")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -51,12 +52,15 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     //Dagger Hilt
-    implementation ("com.google.dagger:hilt-android:2.44")
-    kapt ("com.google.dagger:hilt-compiler:2.44")
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-compiler:2.44")
     // SDP for responsive margin/padding
-    implementation ("com.intuit.sdp:sdp-android:1.1.1")
+    implementation("com.intuit.sdp:sdp-android:1.1.1")
     // SSP for responsive text size
-    implementation ("com.intuit.ssp:ssp-android:1.1.1")
+    implementation("com.intuit.ssp:ssp-android:1.1.1")
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+    implementation("com.google.firebase:firebase-firestore")
 
 }
 

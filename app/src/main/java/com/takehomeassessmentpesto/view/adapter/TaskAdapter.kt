@@ -44,7 +44,7 @@ class TaskAdapter(
             holder.apply {
                 tvTitle.text = model.title
                 tvDescription.text = mContext.getString(
-                    R.string.descritpion,
+                    R.string.description,
                     model.description
                 )
                 tvTaskId.text = model.id

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "691356281513",
+    "project_id": "pestoassessment",
+    "storage_bucket": "pestoassessment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691356281513:android:9e9af4a4670bf74fee97b8",
+        "android_client_info": {
+          "package_name": "com.takehomeassessmentpesto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ5PHgWwpyhyYCcI3YuWAOMLGBfAsTDAw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

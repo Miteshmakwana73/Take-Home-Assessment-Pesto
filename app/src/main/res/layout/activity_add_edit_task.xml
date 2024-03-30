@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_background"
+    tools:context=".view.AddEditTaskActivity">
+
+    <RelativeLayout
+        android:id="@+id/lnActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/user_theme"
+        android:paddingStart="@dimen/_5sdp"
+        android:paddingEnd="@dimen/_5sdp">
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/actionBarItemBackground"
+            android:clickable="true"
+            android:padding="@dimen/_11sdp"
+            android:src="@drawable/ic_close" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/fontRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@+id/imgClose"
+            android:gravity="center_vertical"
+            android:text="@string/add_task"
+            android:textColor="@color/white"
+            android:textSize="@dimen/header_font_size" />
+
+        <ImageView
+            android:id="@+id/imgDelete"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/actionBarItemBackground"
+            android:clickable="true"
+            android:padding="@dimen/_11sdp"
+            android:src="@drawable/ic_delete"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedscroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lnActionBar"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_20sdp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/activity_horizontal_start_end_margin" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/activity_horizontal_start_end_margin" />
+
+            <TextView
+                android:id="@+id/tvTaskLabel"
+                style="@style/fontRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="@string/task_details"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgTitle"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="?attr/actionBarItemBackground"
+                android:src="@drawable/ic_title"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/tvTaskLabel" />
+
+            <EditText
+                android:id="@+id/edTitle"
+                style="@style/fontRegular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@null"
+                android:hint="@string/title"
+                android:inputType="textPersonName"
+                android:maxLength="30"
+                android:textColor="@color/edittext_text_color"
+                android:textColorHint="@color/text_gray"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="@id/guideline2"
+                app:layout_constraintStart_toEndOf="@+id/imgTitle"
+                app:layout_constraintTop_toTopOf="@id/imgTitle" />
+
+            <View
+                android:id="@+id/viewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/border_gray"
+                app:layout_constraintTop_toBottomOf="@+id/edTitle" />
+
+            <ImageView
+                android:id="@+id/imgDescription"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="?attr/actionBarItemBackground"
+                android:src="@drawable/ic_description"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/viewTitle" />
+
+            <EditText
+                android:id="@+id/edDetails"
+                style="@style/fontRegular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@null"
+                android:fadeScrollbars="false"
+                android:gravity="start"
+                android:hint="@string/description"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="@dimen/_2sdp"
+                android:maxLength="5000"
+                android:maxLines="5"
+                android:scrollbars="vertical"
+                android:textColor="@color/edittext_text_color"
+                android:textColorHint="@color/text_gray"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="@+id/guideline2"
+                app:layout_constraintStart_toEndOf="@+id/imgDescription"
+                app:layout_constraintTop_toTopOf="@id/imgDescription" />
+
+            <View
+                android:id="@+id/viewDesc"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/border_gray"
+                app:layout_constraintTop_toBottomOf="@+id/edDetails" />
+
+            <ImageView
+                android:id="@+id/imgStatus"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="?attr/actionBarItemBackground"
+                android:src="@drawable/ic_status"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/viewDesc" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                style="@style/fontRegular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@null"
+                android:hint="@string/status"
+                android:maxLength="30"
+                android:text="@string/to_do"
+                android:textColor="@color/edittext_text_color"
+                android:textColorHint="@color/text_gray"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="@id/guideline2"
+                app:layout_constraintStart_toEndOf="@+id/imgTitle"
+                app:layout_constraintTop_toTopOf="@id/imgStatus" />
+
+            <View
+                android:id="@+id/viewStatus"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/border_gray"
+                app:layout_constraintTop_toBottomOf="@+id/tvStatus" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                style="@style/fontBold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:backgroundTint="@color/user_theme"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:letterSpacing="0"
+                android:padding="@dimen/_9sdp"
+                android:text="@string/save"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/button_text_size"
+                app:cornerRadius="@dimen/edittext_radious"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guideline2"
+                app:layout_constraintStart_toStartOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/viewStatus"
+                app:layout_constraintVertical_bias="1.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

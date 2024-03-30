@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    app:cardBackgroundColor="@color/task_listing_card"
+    app:cardCornerRadius="@dimen/_10sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/_10sdp">
+
+        <ImageView
+            android:id="@+id/imgColor"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:visibility="visible"
+            android:background="@color/user_theme"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            style="@style/fontBold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="30 \n Mar"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgColor"
+            app:layout_constraintEnd_toEndOf="@id/imgColor"
+            app:layout_constraintStart_toStartOf="@+id/imgColor"
+            app:layout_constraintTop_toTopOf="@+id/imgColor" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/fontRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            tools:text="Title"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toTopOf="@+id/tvDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imgColor"
+            app:layout_constraintTop_toTopOf="@id/imgColor"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/fontRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            tools:text="@string/descritpion"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toTopOf="@+id/tvTaskId"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <TextView
+            android:id="@+id/tvTaskId"
+            style="@style/fontRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Id: 123"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toTopOf="@+id/tvStatusLabel"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+        <TextView
+            android:id="@+id/tvStatusLabel"
+            style="@style/fontRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@string/status"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgColor"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTaskId" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            style="@style/fontRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            tools:text="@string/to_do"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toEndOf="@+id/tvStatusLabel"
+            app:layout_constraintTop_toTopOf="@+id/tvStatusLabel" />
+
+        <TextView
+            android:id="@+id/tvView"
+            style="@style/fontRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@string/view"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvStatusLabel" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

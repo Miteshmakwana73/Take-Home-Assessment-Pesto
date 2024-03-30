@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Take Home Assessment Pesto</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="status">Status:</string>
+    <string name="to_do">To DO</string>
+    <string name="in_progress">In Progress</string>
+    <string name="done">Done</string>
+    <string name="view">View</string>
+    <string name="descritpion">Descritpion : %1$s</string>
+    <string name="my_task">My Task</string>
+    <string name="add_task">Add Task</string>
+    <string name="edit_task">Edit Task</string>
+    <string name="view_task">View Task</string>
+    <string name="save">Save</string>
+    <string name="task_details">Task Details</string>
+    <string name="title">Title</string>
+    <string name="description">Add details…</string>
+    <string name="please_enter_details">Please enter details</string>
+    <string name="please_enter_title">Please enter title</string>
+</resources>

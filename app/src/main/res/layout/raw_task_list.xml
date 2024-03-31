@@ -132,6 +132,37 @@
             android:singleLine="true"
             android:text="@string/view"
             android:textColor="@color/text_gray"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toStartOf="@id/tvEdit"
+            app:layout_constraintTop_toTopOf="@+id/tvStatusLabel" />
+        <TextView
+            android:id="@+id/tvEdit"
+            style="@style/fontRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:text="@string/edit"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toStartOf="@id/tvDelete"
+            app:layout_constraintTop_toTopOf="@+id/tvStatusLabel" />
+
+        <TextView
+            android:id="@+id/tvDelete"
+            style="@style/fontRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@string/delete"
+            android:textColor="@color/text_gray"
             android:textSize="@dimen/_10ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvStatusLabel" />

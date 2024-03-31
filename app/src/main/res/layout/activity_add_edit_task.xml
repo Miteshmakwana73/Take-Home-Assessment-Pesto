@@ -11,7 +11,7 @@
         android:id="@+id/lnActionBar"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/user_theme"
+        android:background="@color/white"
         android:paddingStart="@dimen/_5sdp"
         android:paddingEnd="@dimen/_5sdp">
 
@@ -28,14 +28,14 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            style="@style/fontRegular"
+            style="@style/fontBold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_toEndOf="@+id/imgClose"
-            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_toRightOf="@id/imgClose"
             android:text="@string/add_task"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/header_font_size" />
 
         <ImageView
@@ -52,6 +52,12 @@
             android:visibility="gone"
             tools:visibility="visible" />
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -212,7 +218,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:backgroundTint="@color/user_theme"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:letterSpacing="0"

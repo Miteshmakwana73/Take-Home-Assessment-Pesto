@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.takehomeassessmentpesto.R
 import com.takehomeassessmentpesto.model.TaskModel
 import com.takehomeassessmentpesto.utils.Constants
+import com.takehomeassessmentpesto.utils.dateToStringFormat
 
 /**
  * TaskAdapter list adapter : Show Task list.
@@ -42,6 +43,7 @@ class TaskAdapter(
         val model = mList[holder.adapterPosition]
         try {
             holder.apply {
+                holder.tvDate.text = model.createdAt?.toDate()!!.dateToStringFormat(mDateFormat)
                 tvTitle.text = model.title
                 tvDescription.text = mContext.getString(
                     R.string.description,

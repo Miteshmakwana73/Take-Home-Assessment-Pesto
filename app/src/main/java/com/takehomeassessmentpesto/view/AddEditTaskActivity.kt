@@ -7,49 +7,44 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.text.TextUtils
 import android.view.Window
 import android.view.WindowManager
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import androidx.appcompat.app.AppCompatActivity
+import android.view.MotionEvent
+import androidx.activity.viewModels
 import com.takehomeassessmentpesto.R
+import com.takehomeassessmentpesto.core.BaseActivity
 import com.takehomeassessmentpesto.databinding.ActivityAddEditTaskBinding
 import com.takehomeassessmentpesto.model.TaskModel
+import com.takehomeassessmentpesto.network.Status
 import com.takehomeassessmentpesto.utils.Constants
 import com.takehomeassessmentpesto.utils.hideKeyboard
+import com.takehomeassessmentpesto.utils.makeVisible
 import com.takehomeassessmentpesto.utils.showSnackBarToast
+import com.takehomeassessmentpesto.utils.toast
+import com.takehomeassessmentpesto.viewmodel.TaskViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AddEditTaskActivity : AppCompatActivity() {
+class AddEditTaskActivity : BaseActivity() {
     private lateinit var binding: ActivityAddEditTaskBinding
 
-    var taskModel: TaskModel = TaskModel()
-    var isEdit: Boolean = false
+    private var taskModel: TaskModel = TaskModel()
+    private var isEdit: Boolean = false
+
+    private val taskViewModel: TaskViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddEditTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         getIntentData()
         manageStatus()
-        binding.imgClose.setOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
-        }
-
-        binding.tvStatus.setOnClickListener {
-            showStatusDialog()
-        }
-
-        binding.btnSave.setOnClickListener {
-            hideKeyboard()
-            if (checkValidation()) {
-                // call api and set result
-                setResult()
-            }
-        }
+        setObserver()
+        setClickListener()
     }
 
     /**
@@ -63,6 +58,49 @@ class AddEditTaskActivity : AppCompatActivity() {
             } else {
                 intent.getParcelableExtra(Constants.INTENT_TASK_MODEL)!!
             }
+            binding.apply {
+                imgDelete.makeVisible()
+                tvTitle.text = getString(R.string.edit_task)
+                edTitle.setText(taskModel.title)
+                edDetails.setText(taskModel.description)
+                tvStatus.text = taskModel.status
+            }
+        }
+    }
+
+    /**
+     * manage click listener of view
+     */
+    private fun setClickListener() {
+        binding.imgClose.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
+        binding.tvStatus.setOnClickListener {
+            showStatusDialog()
+        }
+
+        binding.btnSave.setOnClickListener {
+            hideKeyboard()
+            if (checkValidation()) {
+                // call api and set result
+                addUpdateEvent()
+            }
+        }
+
+        // this will allow inside scroll on multiline edit text if you have parent nested scrollview
+        binding.edDetails.setOnTouchListener { v, event ->
+            if (v.id == R.id.edDetails) {
+                v.parent.requestDisallowInterceptTouchEvent(true)
+                when (event.action and MotionEvent.ACTION_MASK) {
+                    MotionEvent.ACTION_UP -> v.parent.requestDisallowInterceptTouchEvent(false)
+                }
+            }
+            false
+        }
+
+        binding.imgDelete.setOnClickListener {
+            taskViewModel.deleteTask(taskModel.id)
         }
     }
 
@@ -117,6 +155,69 @@ class AddEditTaskActivity : AppCompatActivity() {
             false
         } else {
             true
+        }
+    }
+
+    /**
+     * Add/ Update task
+     */
+    private fun addUpdateEvent() {
+        taskModel.title = binding.edTitle.text.toString().trim()
+        taskModel.description = binding.edDetails.text.toString().trim()
+        taskModel.status = binding.tvStatus.text.toString().trim()
+        taskModel.userId = deviceId
+
+        taskViewModel.addUpdateBookingData(taskModel, isEdit)
+    }
+
+    /**
+     * set observer
+     */
+    private fun setObserver() {
+
+        taskViewModel.taskAddUpdateResponse.observe(this) {
+            when (it.status) {
+                Status.LOADING -> {
+                    showProgress(this)
+                }
+
+                Status.SUCCESS -> {
+                    hideProgress()
+                    it.data?.let { result ->
+                        toast(result)
+//                        taskModel = result
+                        setResult()
+
+                    }
+                }
+
+                Status.ERROR -> {
+                    hideProgress()
+                    it.message?.let { it1 -> binding.root.showSnackBarToast(it1) }
+                }
+            }
+        }
+
+        taskViewModel.taskDeleteResponse.observe(this) {
+            when (it.status) {
+                Status.LOADING -> {
+                    showProgress(this)
+                }
+
+                Status.SUCCESS -> {
+                    hideProgress()
+                    it.data?.let { result ->
+                        toast(result)
+                        taskModel = TaskModel()
+                        setResult()
+                    }
+                }
+
+                Status.ERROR -> {
+                    hideProgress()
+                    it.message?.let { it1 -> binding.root.showSnackBarToast(it1) }
+                }
+            }
         }
     }
 

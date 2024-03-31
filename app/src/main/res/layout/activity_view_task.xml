@@ -71,9 +71,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="@dimen/_16sdp"
         android:layout_marginBottom="@dimen/_16sdp"
-        android:backgroundTint="@color/user_theme"
         android:clickable="true"
-        app:srcCompat="@drawable/ic_add" />
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/black" />
 
     <TextView
         android:id="@+id/tvNoDataFound"

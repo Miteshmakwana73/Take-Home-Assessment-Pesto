@@ -3,7 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="user_theme">#FFF06649</color>
+    <color name="user_theme">#000000</color>
     <color name="task_listing_card">#FAFAFA</color>
     <color name="text_gray">#999999</color>
     <color name="task_theme">#FFF06649</color>

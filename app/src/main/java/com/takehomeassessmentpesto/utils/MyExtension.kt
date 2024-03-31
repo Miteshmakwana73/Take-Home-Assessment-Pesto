@@ -143,28 +143,3 @@ fun Date.dateToStringFormat(format: String): String {
     return ""
 
 }
-
-/**
- * get firebase token for notification
- */
-fun Context.getFirebaseToken(pref: Pref) {
-   /* FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-        if (!task.isSuccessful) {
-            return@OnCompleteListener
-        }
-
-        // Get new FCM registration token
-        val token = task.result
-
-        // Log and toast
-        token?.let {
-            pref.setValue(
-                this,
-                Constants.PREF_FCM_TOKEN,
-                it,
-                Constants.PREF_FILE
-            )
-        }
-    })*/
-    //   MyLog.e(TAG, "&&&&& &&&&& FirebaseToken: " + strToken);
-}

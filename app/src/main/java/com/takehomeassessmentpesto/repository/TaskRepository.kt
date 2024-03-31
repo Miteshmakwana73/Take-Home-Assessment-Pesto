@@ -12,8 +12,8 @@ class TaskRepository @Inject constructor() {
 
     private var firestoreDB = FirebaseFirestore.getInstance()
 
-    //booking
-    fun getBookingAll(): CollectionReference {
+    //task
+    fun getTaskAll(): CollectionReference {
         return firestoreDB.collection(Constants.TABLE_TASK)
     }
 

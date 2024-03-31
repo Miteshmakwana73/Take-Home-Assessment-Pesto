@@ -9,7 +9,7 @@ object TaskList {
     /**
      * make array list of from firestore
      */
-    fun getUserBookingArrayList(
+    fun getUserTaskArrayList(
         querySnapshot: QuerySnapshot,
         userId: String
     ): ArrayList<TaskModel> {

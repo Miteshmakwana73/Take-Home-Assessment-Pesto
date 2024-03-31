@@ -30,9 +30,9 @@ class TaskViewModel @Inject constructor(
     val getTaskListDataResponse: LiveData<Resource<ArrayList<TaskModel>>> get() = _getTaskListDataResponse
 
     /**
-     * uploading profile picture to firebase storage
+     * add/ update task in firebase storage
      */
-    fun addUpdateBookingData(user: TaskModel, isForUpdate: Boolean) {
+    fun addUpdateTaskData(user: TaskModel, isForUpdate: Boolean) {
 
         _taskAddUpdateResponse.value = Resource.loading(null)
         if (networkHelper.isNetworkConnected()) {
@@ -126,7 +126,7 @@ class TaskViewModel @Inject constructor(
 
         if (networkHelper.isNetworkConnected()) {
             _taskDeleteResponse.value = Resource.loading(null)
-            val ref = taskRepository.getBookingAll()
+            val ref = taskRepository.getTaskAll()
 
             ref.document(taskId).delete()
                 .addOnCompleteListener {
@@ -153,7 +153,7 @@ class TaskViewModel @Inject constructor(
 
         taskRepository.getAllTaskByUserRepository(userId).get()
             .addOnSuccessListener {
-                val mList = TaskList.getUserBookingArrayList(it, userId)
+                val mList = TaskList.getUserTaskArrayList(it, userId)
                 _getTaskListDataResponse.postValue(
                     Resource.success(
                         mList
@@ -179,7 +179,7 @@ class TaskViewModel @Inject constructor(
 
         taskRepository.getAllUserTaskByFilterRepository(userId,filter).get()
             .addOnSuccessListener {
-                val mList = TaskList.getUserBookingArrayList(it, userId)
+                val mList = TaskList.getUserTaskArrayList(it, userId)
                 _getTaskListDataResponse.postValue(
                     Resource.success(
                         mList

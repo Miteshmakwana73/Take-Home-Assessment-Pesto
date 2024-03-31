@@ -166,7 +166,7 @@ class AddEditTaskActivity : BaseActivity() {
         taskModel.status = binding.tvStatus.text.toString().trim()
         taskModel.userId = deviceId
 
-        taskViewModel.addUpdateBookingData(taskModel, isEdit)
+        taskViewModel.addUpdateTaskData(taskModel, isEdit)
     }
 
     /**

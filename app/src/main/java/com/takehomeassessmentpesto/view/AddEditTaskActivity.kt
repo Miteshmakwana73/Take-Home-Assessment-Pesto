@@ -133,7 +133,7 @@ class AddEditTaskActivity : BaseActivity() {
      * Manage Status color
      */
     private fun manageStatus() {
-        var mColor = when (binding.tvStatus.text) {
+        val mColor = when (binding.tvStatus.text) {
             getString(R.string.to_do) -> getColor(R.color.to_do_color)
             getString(R.string.in_progress) -> getColor(R.color.in_progress_color)
             getString(R.string.done) -> getColor(R.color.done_color)

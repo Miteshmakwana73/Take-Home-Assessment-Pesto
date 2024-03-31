@@ -38,7 +38,7 @@ class ViewTaskActivity : BaseActivity() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
                 //  you will get result here in result.data
-                var mData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                val mData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                     result.data?.getParcelableExtra(Constants.INTENT_TASK_MODEL, TaskModel::class.java)
                 } else {
                     result.data?.getParcelableExtra(Constants.INTENT_TASK_MODEL)

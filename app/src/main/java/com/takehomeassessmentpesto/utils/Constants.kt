@@ -14,10 +14,6 @@ object Constants {
     const val IN_PROGRESS_STATUS = "In Progress"
     const val DONE_STATUS = "Done"
 
-    /*******Pref Key********/
-    const val PREF_FILE = "pref_astrology"
-    const val PREF_FCM_TOKEN="fcmtoken"
-
     /*******Intents Key********/
     const val INTENT_ISEDIT = "isEdit"
     const val INTENT_TASK_MODEL = "taskmodel"

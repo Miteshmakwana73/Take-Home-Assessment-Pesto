@@ -70,7 +70,7 @@ class TaskViewModel @Inject constructor(
                 if(it.isSuccessful) {
                     _taskAddUpdateResponse.postValue(
                         Resource.success(
-                            "${Constants.MSG_TASK_ADDED_SUCCESSFUL}",
+                            Constants.MSG_TASK_ADDED_SUCCESSFUL,
                         )
                     )
                 }
@@ -93,7 +93,7 @@ class TaskViewModel @Inject constructor(
         _taskAddUpdateResponse.value = Resource.loading(null)
 //        task.createdAt = Timestamp.now()
 
-        var map = HashMap<String, Any>()
+        val map = HashMap<String, Any>()
         task.title.let { map.put(Constants.FIELD_TITLE, it) }
         task.description.let { map.put(Constants.FIELD_DESCRIPTION, it) }
         task.status.let { map.put(Constants.FIELD_STATUS, it) }

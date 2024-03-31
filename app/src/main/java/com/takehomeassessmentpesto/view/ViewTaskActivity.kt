@@ -46,10 +46,10 @@ class ViewTaskActivity : BaseActivity() {
                 if (mPositionEdit >= 0) {
                     if(mData!!.id.isBlank()) {
                         mList.removeAt(mPositionEdit)
-                        binding.rvBooking.adapter?.notifyItemRemoved(mPositionEdit)
+                        binding.rvTaskList.adapter?.notifyItemRemoved(mPositionEdit)
                     } else{
                         mList[mPositionEdit] = mData
-                        binding.rvBooking.adapter?.notifyItemChanged(mPositionEdit)
+                        binding.rvTaskList.adapter?.notifyItemChanged(mPositionEdit)
                     }
                     mPositionEdit = DEFAULT_POSITION_VALUE
                     manageData()
@@ -65,7 +65,7 @@ class ViewTaskActivity : BaseActivity() {
         setContentView(binding.root)
 
         setObserver()
-        with(binding.rvBooking) {
+        with(binding.rvTaskList) {
             val mLayoutManager = LinearLayoutManager(context)
             layoutManager = mLayoutManager
             itemAnimator = DefaultItemAnimator()
@@ -136,7 +136,7 @@ class ViewTaskActivity : BaseActivity() {
                     it.data?.let { result ->
                         mList.clear()
                         mList.addAll(result)
-                        binding.rvBooking.adapter?.notifyDataSetChanged()
+                        binding.rvTaskList.adapter?.notifyDataSetChanged()
                         manageData()
                     }
                 }
@@ -167,10 +167,10 @@ class ViewTaskActivity : BaseActivity() {
      */
     private fun manageData() {
         if (mList.isEmpty()) {
-            binding.rvBooking.makeGone()
+            binding.rvTaskList.makeGone()
             binding.tvNoDataFound.makeVisible()
         } else {
-            binding.rvBooking.makeVisible()
+            binding.rvTaskList.makeVisible()
             binding.tvNoDataFound.makeGone()
         }
     }

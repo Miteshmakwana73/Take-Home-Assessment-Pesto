@@ -9,7 +9,6 @@ import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-//import com.google.android.gms.tasks.OnCompleteListener
 
 /**
  * My Extensions

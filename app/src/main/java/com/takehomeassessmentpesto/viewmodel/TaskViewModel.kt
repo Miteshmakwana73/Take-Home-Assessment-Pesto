@@ -22,24 +22,12 @@ class TaskViewModel @Inject constructor(
     private val _taskAddUpdateResponse: MutableLiveData<Resource<String>> = MutableLiveData()
     val taskAddUpdateResponse: LiveData<Resource<String>> get() = _taskAddUpdateResponse
 
-    private val _bookingExtendResponse: MutableLiveData<Resource<String>> = MutableLiveData()
-    val bookingExtendResponse: LiveData<Resource<String>> get() = _bookingExtendResponse
-
     private val _taskDeleteResponse: MutableLiveData<Resource<String>> = MutableLiveData()
     val taskDeleteResponse: LiveData<Resource<String>> get() = _taskDeleteResponse
-
-    var bookingList: MutableLiveData<ArrayList<TaskModel>> = MutableLiveData()
 
     private val _getTaskListDataResponse: MutableLiveData<Resource<ArrayList<TaskModel>>> =
         MutableLiveData()
     val getTaskListDataResponse: LiveData<Resource<ArrayList<TaskModel>>> get() = _getTaskListDataResponse
-
-    private val _getBookingDetailResponse: MutableLiveData<Resource<TaskModel>> =
-        MutableLiveData()
-    val getBookingDetailResponse: LiveData<Resource<TaskModel>> get() = _getBookingDetailResponse
-
-    private val _bookingUploadPhotoResponse: MutableLiveData<Resource<String>> = MutableLiveData()
-    val bookingUploadPhotoResponse: LiveData<Resource<String>> get() = _bookingUploadPhotoResponse
 
     /**
      * uploading profile picture to firebase storage
@@ -98,7 +86,7 @@ class TaskViewModel @Inject constructor(
     }
 
     /**
-     * Updating booking info in firebase
+     * Updating task info in firebase
      */
     private fun updateTaskData(task: TaskModel) {
 
@@ -132,7 +120,7 @@ class TaskViewModel @Inject constructor(
     }
 
     /**
-     * delete time slot
+     * delete task
      */
     fun deleteTask(taskId: String) {
 
@@ -143,7 +131,7 @@ class TaskViewModel @Inject constructor(
             ref.document(taskId).delete()
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        _taskDeleteResponse.value = Resource.success(Constants.MSG_BOOKING_DELETE_SUCCESSFUL)
+                        _taskDeleteResponse.value = Resource.success(Constants.MSG_TASK_DELETE_SUCCESSFUL)
                     }
                 }
                 .addOnFailureListener {
@@ -206,37 +194,5 @@ class TaskViewModel @Inject constructor(
                     )
                 )
             }
-    }
-
-    /**
-     * Get all pending booking info
-     */
-    fun getTaskDetail(taskId: String) {
-        if (networkHelper.isNetworkConnected()) {
-            _getBookingDetailResponse.value = Resource.loading(null)
-
-            taskRepository.getBookingDetail(taskId)
-                .addSnapshotListener { value, error ->
-                    if (error!=null) {
-                        _getBookingDetailResponse.postValue(
-                            Resource.error(
-                                error.message.toString(),
-                                null
-                            )
-                        )
-
-                    }
-//                    var bookingDetail = BookingList.getBookingDetail(value!!)
-//                    _getBookingDetailResponse.postValue(Resource.success(bookingDetail))
-                }
-
-        } else {
-            _getBookingDetailResponse.postValue(
-                Resource.error(
-                    Constants.MSG_NO_INTERNET_CONNECTION,
-                    null
-                )
-            )
-        }
     }
 }

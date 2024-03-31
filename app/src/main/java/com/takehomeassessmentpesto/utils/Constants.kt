@@ -4,13 +4,10 @@ object Constants {
 
     const val VALIDATION_ERROR = "Oops Something went wrong.Please try again later"
     const val MSG_NO_INTERNET_CONNECTION = "The internet connection appears to be offline"
-    const val MSG_SOMETHING_WENT_WRONG = "Something went wrong"
 
-    const val MSG_UPDATE_SUCCESSFULL = "Profile updated successfully"
     const val MSG_TASK_ADDED_SUCCESSFUL = "Task added successfully"
     const val MSG_TASK_UPDATE_SUCCESSFUL = "Task updated successfully"
-    const val MSG_BOOKING_DELETE_SUCCESSFUL = "Task deleted successfully"
-    const val MSG_RATING_SUCCESSFUL = "Task added successfully"
+    const val MSG_TASK_DELETE_SUCCESSFUL = "Task deleted successfully"
 
     //status
     const val TO_DO_STATUS = "To Do"

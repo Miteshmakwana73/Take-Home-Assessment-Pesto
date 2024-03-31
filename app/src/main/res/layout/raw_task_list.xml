@@ -17,8 +17,8 @@
             android:id="@+id/imgColor"
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_90sdp"
-            android:visibility="visible"
             android:background="@color/user_theme"
+            android:visibility="visible"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -44,7 +44,6 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:singleLine="true"
-            tools:text="Title"
             android:textColor="@color/black"
             android:textSize="@dimen/_10ssp"
             app:layout_constraintBottom_toTopOf="@+id/tvDescription"
@@ -52,7 +51,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imgColor"
             app:layout_constraintTop_toTopOf="@id/imgColor"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Title" />
 
         <TextView
             android:id="@+id/tvDescription"
@@ -63,14 +63,14 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:singleLine="true"
-            tools:text="@string/description"
             android:textColor="@color/text_gray"
             android:textSize="@dimen/_10ssp"
             app:layout_constraintBottom_toTopOf="@+id/tvTaskId"
             app:layout_constraintEnd_toEndOf="@+id/tvTitle"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/tvTitle"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="@string/description" />
 
         <TextView
             android:id="@+id/tvTaskId"
@@ -115,11 +115,11 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:singleLine="true"
-            tools:text="@string/to_do"
             android:textColor="@color/text_gray"
             android:textSize="@dimen/_10ssp"
             app:layout_constraintStart_toEndOf="@+id/tvStatusLabel"
-            app:layout_constraintTop_toTopOf="@+id/tvStatusLabel" />
+            app:layout_constraintTop_toTopOf="@+id/tvStatusLabel"
+            tools:text="@string/to_do" />
 
         <TextView
             android:id="@+id/tvView"
@@ -127,25 +127,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:ellipsize="end"
             android:maxLines="1"
             android:singleLine="true"
             android:text="@string/view"
             android:textColor="@color/text_gray"
-            android:layout_marginEnd="@dimen/_5sdp"
             android:textSize="@dimen/_10ssp"
             app:layout_constraintEnd_toStartOf="@id/tvEdit"
             app:layout_constraintTop_toTopOf="@+id/tvStatusLabel" />
+
         <TextView
             android:id="@+id/tvEdit"
             style="@style/fontRegular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:ellipsize="end"
             android:maxLines="1"
             android:singleLine="true"
-            android:layout_marginEnd="@dimen/_5sdp"
             android:text="@string/edit"
             android:textColor="@color/text_gray"
             android:textSize="@dimen/_10ssp"

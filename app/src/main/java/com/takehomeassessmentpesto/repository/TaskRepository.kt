@@ -43,11 +43,4 @@ class TaskRepository @Inject constructor() {
     ): DocumentReference {
         return firestoreDB.collection(Constants.TABLE_TASK).document(task.id)
     }
-
-    fun getBookingDetail(
-        bookingId:String
-    ): DocumentReference {
-        return firestoreDB.collection(Constants.TABLE_TASK).document(bookingId)
-    }
-
 }

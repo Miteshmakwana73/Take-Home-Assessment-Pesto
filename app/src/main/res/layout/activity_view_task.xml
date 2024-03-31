@@ -14,7 +14,7 @@
         android:background="@color/white">
 
         <TextView
-            android:id="@+id/tvtitle"
+            android:id="@+id/tvTitle"
             style="@style/fontBold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,13 +42,13 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@id/tvtitle"
+            android:layout_below="@id/tvTitle"
             android:visibility="gone" />
 
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_booking"
+        android:id="@+id/rvTaskList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/lnActionBar"

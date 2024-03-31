@@ -42,19 +42,4 @@ abstract class BaseActivity : AppCompatActivity() {
             e.printStackTrace()
         }
     }
-
-    /**
-     * redirect to login
-     */
-    protected fun redirectToLogin(context: Context) {
-        try {
-            /*FirebaseAuth.getInstance().signOut()
-//            pref.clearAllPref(context, Constants.PREF_FILE)// do not clear scm token will clear and it will set "" in after login
-            NotificationManagerCompat.from(context).cancelAll() // clear all notification on logout
-            startActivity(Intent(context, LoginActivity::class.java))
-            finishAffinity()*/
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
 }
